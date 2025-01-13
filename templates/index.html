@@ -7,37 +7,110 @@
     <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #004d80, #00b386);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
 
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 15px 0;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .section h1, .section h2 {
+            text-align: center;
+            color: #e6f9ff;
+        }
+
+        .upload-section {
+            text-align: center;
+        }
+
+        .upload-section input[type="file"] {
+            margin: 10px 0;
+        }
+
+        .button {
+            background: #007acc;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #005f99;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <!-- Sección de subir imagen -->
-        <div class="upload-section">
+        <div class="section upload-section">
             <h1>Sube una imagen para analizarla</h1>
             <form id="uploadForm" enctype="multipart/form-data">
                 <input type="file" id="image" name="image" accept="image/*">
-                <button type="submit">Subir imagen</button>
+                <button class="button" type="submit">Subir imagen</button>
             </form>
         </div>
 
         <!-- Sección de imagen original -->
-        <div class="original-image-section">
-            <h2>Imagen original</h2>
+        <div class="section original-image-section">
+            <h2>Imagen Original</h2>
             <div class="image-container">
                 <img id="originalImage" src="" alt="Imagen Original">
             </div>
         </div>
 
         <!-- Sección de historial de imágenes -->
-        <div class="historico-images-section">
+        <div class="section historico-images-section">
             <h2>Historial de Imágenes Subidas</h2>
             <div id="historicoImages" class="image-gallery"></div>
         </div>
 
-
         <!-- Sección de imágenes procesadas -->
-        <div class="processed-images-section">
-            <h2>Imágenes procesadas</h2>
+        <div class="section processed-images-section">
+            <h2>Imágenes Procesadas</h2>
             <div id="processedImages" class="image-gallery"></div>
         </div>
     </div>
