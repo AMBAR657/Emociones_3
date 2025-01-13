@@ -1,5 +1,4 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -63,12 +62,26 @@
         .image-container {
             display: flex;
             justify-content: center;
+            align-items: center;
+            position: relative;
             margin-top: 15px;
         }
 
         .image-container img {
             max-width: 100%;
             border-radius: 10px;
+        }
+
+        .image-container .emotion-text {
+            position: absolute;
+            bottom: 10%;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-transform: capitalize;
         }
 
         .image-gallery {
@@ -81,22 +94,6 @@
         .image-gallery img {
             width: 100%;
             border-radius: 5px;
-        }
-
-        .mood-section {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid #00b386;
-            border-radius: 10px;
-            margin: 20px 0;
-            padding: 15px;
-            width: 90%;
-            max-width: 600px;
-            text-align: center;
-            color: #e6f9ff;
-        }
-
-        .mood-section h3 {
-            margin: 0 0 10px 0;
         }
     </style>
 </head>
@@ -116,13 +113,8 @@
             <h2>Imagen Original</h2>
             <div class="image-container">
                 <img id="originalImage" src="" alt="Imagen Original">
+                <div class="emotion-text" id="emotionText">Emoción no detectada</div>
             </div>
-        </div>
-
-        <!-- Sección del estado de ánimo -->
-        <div class="mood-section">
-            <h3>Estado de Ánimo Detectado</h3>
-            <p id="moodText">N/A</p>
         </div>
 
         <!-- Sección de historial de imágenes -->
